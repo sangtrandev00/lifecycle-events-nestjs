@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    platform: linux/amd64 # Specify the platform
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourPassword123
+    ports:
+      - "1434:1433"
+    networks:
+      - sql-network
+
+networks:
+  sql-network:
+    driver: bridge
